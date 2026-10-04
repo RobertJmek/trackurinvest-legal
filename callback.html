@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TrackUrInvest: întoarcere de la bancă</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 680px; margin: 0 auto; padding: 32px 16px; font: 16px/1.6 -apple-system, system-ui, sans-serif; }
+  code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Te întorc în TrackUrInvest…</h1>
+<p>Banca a trimis aici rezultatul autorizării. Pagina te duce imediat la aplicația de pe calculatorul tău (<code>127.0.0.1:4310</code>). Nimic nu se salvează aici.</p>
+<p>Dacă nu se întâmplă nimic: <a id="go" href="#">deschide aplicația</a>, sau copiază URL-ul de mai jos în <em>TrackUrInvest → Setări → Bănci</em>.</p>
+<p><code id="url"></code></p>
+<script>
+  // Codul de autorizare e de unică folosință și nu poate fi schimbat fără cheia privată a aplicației.
+  const target = 'http://127.0.0.1:4310/bank/callback' + location.search;
+  document.getElementById('go').href = target;
+  document.getElementById('url').textContent = target;
+  location.replace(target);
+</script>
+</body>
+</html>
